@@ -30,11 +30,10 @@ pipeline {
         stage('Sonar quality check'){
 
             steps{
-                script{
-                     withSonarQubeEnv(credentialsId: 'sonartoken') {
-                      bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-                 }  
-                }
+                withSonarQubeEnv(credentialsId: 'sonartoken') {
+                    bat 'mvn clean package sonar:sonar'
+                    echo 'Static Analysis Completed'
+                }  
             }
         }
     }
