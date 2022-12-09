@@ -9,7 +9,7 @@ pipeline {
                 git 'https://github.com/canadade/JavaProject.git'
             }
         }
-        stage('Unit Testing'){
+        stage('UNIT Testing'){
 
             steps{
                 sh 'mvn test'
