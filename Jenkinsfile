@@ -30,10 +30,11 @@ pipeline {
         stage('Sonar quality check'){
 
             steps{
-               withSonarQubeEnv(credentialsId: 'sonartoken') {
-                 bat 'mvn clean package sonar:sonar'
-    
-                } 
+                script{
+                     withSonarQubeEnv(credentialsId: 'sonartoken') {
+                      bat 'mvn clean package sonar:sonar'
+                 }  
+                }
             }
         }
     }
