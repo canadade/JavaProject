@@ -32,7 +32,6 @@ pipeline {
             steps{
                 withSonarQubeEnv(credentialsId: 'sonartoken') {
                     bat 'mvn clean package sonar:sonar'
-                    echo 'Static Analysis Completed'
                 }  
             }
         }
