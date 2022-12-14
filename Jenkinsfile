@@ -30,7 +30,7 @@ pipeline {
         stage('Sonar quality check'){
 
             steps{
-                withSonarQubeEnv(credentialsId: 'sonartoken') {
+                withSonarQubeEnv(credentialsId: 'sonartoken', installationName: 'sonar') {
                     bat 'mvn clean package sonar:sonar'
                 }  
             }
